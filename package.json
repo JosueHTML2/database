@@ -1,0 +1,26 @@
+{
+  "name": "@josue7/database",
+  "version": "1.1.1",
+  "description": "A local database",
+  "main": "main.js",
+  "scripts": {
+    "typescript": "tsc index.ts -w",
+    "javascript": "node index.js"
+  },
+  "author": "Josué Figueiredo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosueHTML2/sempai.db.git"
+  },
+  "keywords": [
+    "db",
+    "Database",
+    "local"
+  ],
+  "bugs": {
+    "url": "https://github.com/JosueHTML2/sempai.db/issues"
+  },
+  "homepage": "https://github.com/JosueHTML2/sempai.db#readme",
+  "types": "src/typings/index.d.ts"
+}
