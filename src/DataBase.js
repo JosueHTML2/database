@@ -18,7 +18,7 @@ class DataBase {
    }
    has(key) {
       let data = this.find(key);
-      return Array(data).includes(key)
+      return (data) !== undefined;
    }
    shift() {
       shift()
