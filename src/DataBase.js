@@ -29,7 +29,7 @@ class DataBase {
    remove(key) {
       subtract(key)
    }
-   findAndUpdateOne(key, args) {
+  update(key, args) {
       return findAndUpdateOne(key, args)
    }
    clear() {
