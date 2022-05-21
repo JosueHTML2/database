@@ -1,8 +1,7 @@
 const { error } = require("../Errors");
-const { writeFileSync, readFileSync } = require('fs');
-let validKey = (key) => (/(^[0-9])/gi).test(key) && typeof key === "string";
-let path = __dirname.replace('\\Utils', '\\database.json');
-let isArray = (o) => Array.isArray(o);
+const { writeFileSync, readFileSync } = require('fs'),
+path = __dirname.replace('\\Utils', '\\database.json');
+
 
 exports.subtract = (key) => {
    if (!key) return error('empty')
@@ -55,17 +54,17 @@ exports.filter = (callback) => {
 exports.findAndUpdateOne = (key, args) => {
    let keyFinded = this.find(key, 'find');
    if (keyFinded === undefined) return error("key2", key)
-   let res = args.$new(eval(`keyFinded.${key}`));
+   let result = args.$new(keyFinded[key]);
 
    if (isData()) {
       writeFileSync(path, '', 'utf-8');
-      this.add(key, res);
-      return this.find(key, 'find');
+      this.add(key, result);
+      return result;
    }
 
    this.subtract(key);
    this.add(key, res);
-   return
+   return result;
 }
-
-let isData = () => readFileSync(path, "utf-8") === "";
+function isData() { return readFileSync(path, "utf-8") === ""; }
+function validKey(key) { return typeof key === "string" && (/(^[0-9])/gi).test(key) }
